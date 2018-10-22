@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA835EB9217E1732001D16C3 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA835EB8217E1732001D16C3 /* MasterViewController.swift */; };
+		CA835EBB217E1857001D16C3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA835EBA217E1857001D16C3 /* DetailViewController.swift */; };
 		CAFB93B7217E15EE000D9903 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB93B6217E15EE000D9903 /* AppDelegate.swift */; };
 		CAFB93B9217E15EE000D9903 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB93B8217E15EE000D9903 /* ViewController.swift */; };
 		CAFB93BC217E15EE000D9903 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFB93BA217E15EE000D9903 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA835EB8217E1732001D16C3 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		CA835EBA217E1857001D16C3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CAFB93B3217E15EE000D9903 /* Advanced UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Advanced UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFB93B6217E15EE000D9903 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAFB93B8217E15EE000D9903 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 		CAFB93B5217E15EE000D9903 /* Advanced UI */ = {
 			isa = PBXGroup;
 			children = (
+				CA835EB8217E1732001D16C3 /* MasterViewController.swift */,
+				CA835EBA217E1857001D16C3 /* DetailViewController.swift */,
 				CAFB93B6217E15EE000D9903 /* AppDelegate.swift */,
 				CAFB93B8217E15EE000D9903 /* ViewController.swift */,
 				CAFB93BA217E15EE000D9903 /* Main.storyboard */,
@@ -137,6 +143,8 @@
 			files = (
 				CAFB93B9217E15EE000D9903 /* ViewController.swift in Sources */,
 				CAFB93B7217E15EE000D9903 /* AppDelegate.swift in Sources */,
+				CA835EB9217E1732001D16C3 /* MasterViewController.swift in Sources */,
+				CA835EBB217E1857001D16C3 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
