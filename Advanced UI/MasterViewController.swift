@@ -10,14 +10,13 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
+    var data:[City] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        data = [City(name:"Krakow", location:Location(latitude:19.345, longitude:52.12))]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -29,15 +28,13 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return data.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        // Configure the cell...
-
+        cell.textLabel?.text = data[indexPath.row].cityName
         return cell
     }
     

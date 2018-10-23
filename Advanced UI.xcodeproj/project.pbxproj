@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FB518AC217F090F00A5B56E /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB518AB217F090F00A5B56E /* City.swift */; };
+		3FB518AE217F0D5B00A5B56E /* WhetherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB518AD217F0D5B00A5B56E /* WhetherData.swift */; };
+		3FB518B0217F0E4C00A5B56E /* WindDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB518AF217F0E4C00A5B56E /* WindDirection.swift */; };
+		3FB518B2217F0FBE00A5B56E /* WheatherGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB518B1217F0FBE00A5B56E /* WheatherGetter.swift */; };
+		3FB518B4217F18CC00A5B56E /* img in Resources */ = {isa = PBXBuildFile; fileRef = 3FB518B3217F18CC00A5B56E /* img */; };
 		CA835EB9217E1732001D16C3 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA835EB8217E1732001D16C3 /* MasterViewController.swift */; };
 		CA835EBB217E1857001D16C3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA835EBA217E1857001D16C3 /* DetailViewController.swift */; };
 		CAFB93B7217E15EE000D9903 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFB93B6217E15EE000D9903 /* AppDelegate.swift */; };
@@ -17,6 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3FB518AB217F090F00A5B56E /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		3FB518AD217F0D5B00A5B56E /* WhetherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhetherData.swift; sourceTree = "<group>"; };
+		3FB518AF217F0E4C00A5B56E /* WindDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindDirection.swift; sourceTree = "<group>"; };
+		3FB518B1217F0FBE00A5B56E /* WheatherGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherGetter.swift; sourceTree = "<group>"; };
+		3FB518B3217F18CC00A5B56E /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		CA835EB8217E1732001D16C3 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		CA835EBA217E1857001D16C3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CAFB93B3217E15EE000D9903 /* Advanced UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Advanced UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,11 +69,16 @@
 			isa = PBXGroup;
 			children = (
 				CA835EB8217E1732001D16C3 /* MasterViewController.swift */,
+				3FB518AD217F0D5B00A5B56E /* WhetherData.swift */,
+				3FB518AF217F0E4C00A5B56E /* WindDirection.swift */,
 				CA835EBA217E1857001D16C3 /* DetailViewController.swift */,
 				CAFB93B6217E15EE000D9903 /* AppDelegate.swift */,
 				CAFB93B8217E15EE000D9903 /* ViewController.swift */,
 				CAFB93BA217E15EE000D9903 /* Main.storyboard */,
+				3FB518AB217F090F00A5B56E /* City.swift */,
+				3FB518B1217F0FBE00A5B56E /* WheatherGetter.swift */,
 				CAFB93BD217E15EF000D9903 /* Assets.xcassets */,
+				3FB518B3217F18CC00A5B56E /* img */,
 				CAFB93BF217E15EF000D9903 /* LaunchScreen.storyboard */,
 				CAFB93C2217E15EF000D9903 /* Info.plist */,
 			);
@@ -128,6 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FB518B4217F18CC00A5B56E /* img in Resources */,
 				CAFB93C1217E15EF000D9903 /* LaunchScreen.storyboard in Resources */,
 				CAFB93BE217E15EF000D9903 /* Assets.xcassets in Resources */,
 				CAFB93BC217E15EE000D9903 /* Main.storyboard in Resources */,
@@ -142,9 +158,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAFB93B9217E15EE000D9903 /* ViewController.swift in Sources */,
+				3FB518AE217F0D5B00A5B56E /* WhetherData.swift in Sources */,
+				3FB518B2217F0FBE00A5B56E /* WheatherGetter.swift in Sources */,
+				3FB518AC217F090F00A5B56E /* City.swift in Sources */,
 				CAFB93B7217E15EE000D9903 /* AppDelegate.swift in Sources */,
 				CA835EB9217E1732001D16C3 /* MasterViewController.swift in Sources */,
 				CA835EBB217E1857001D16C3 /* DetailViewController.swift in Sources */,
+				3FB518B0217F0E4C00A5B56E /* WindDirection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
