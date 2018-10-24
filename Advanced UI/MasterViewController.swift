@@ -8,71 +8,58 @@
 
 import UIKit
 
+protocol CitySelectionDelegate: class {
+    func citySelected(_ newCity: City)
+}
+
 class MasterViewController: UITableViewController {
 
-    var data:[City] = []
+    var cities:[City] = []
+    weak var delegate: CitySelectionDelegate?
+    var cityCount = 0;
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        let tmpCities = [
+            City(name: "Krakow", location: Location(latitude:19.07, longitude:50.03)),
+            City(name: "Wroclaw", location: Location(latitude:17.02 , longitude: 51.07)),
+            City(name: "Warszawa", location: Location(latitude: 21.00, longitude: 52.13))
+        ]
+        tmpCities.forEach { (city) in
+            city.fetchWheatherData {
+                self.cities.append(city)
+                self.cityCount += 1
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        data = [City(name:"Krakow", location:Location(latitude:19.345, longitude:52.12))]
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
     }
 
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return data.count
+        return cityCount == cities.count ? cityCount : 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = data[indexPath.row].cityName
+        cell.textLabel?.text = cities[indexPath.row].cityName
+        if let wheatherData = cities[indexPath.row].wheather.first {
+            cell.imageView?.image=UIImage(named: wheatherData.iconName)
+        }
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCity = cities[indexPath.row]
+        delegate?.citySelected(selectedCity)
+        if let detailViewController = delegate as? DetailViewController {
+            splitViewController?.showDetailViewController(detailViewController, sender: nil)
+        }
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation
@@ -84,4 +71,10 @@ class MasterViewController: UITableViewController {
     }
     */
 
+}
+
+extension MasterViewController:UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        return true
+    }
 }

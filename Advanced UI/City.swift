@@ -21,11 +21,18 @@ class City {
     init(name: String, location: Location) {
         self.cityName = name
         self.location = location
+        fetchWheatherData ()
+    }
+    
+    func fetchWheatherData(callback: @escaping() -> Void = {}) {
         let wheatherGetter = WeatherGetter()
         wheatherGetter.getWeather(city: self) { (data) in
             data.forEach({ (element) in
                 self.wheather.append(WheatherData(data:element))
             })
+        }
+        DispatchQueue.main.async {
+            callback()
         }
     }
 }
