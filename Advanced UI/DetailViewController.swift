@@ -37,9 +37,9 @@ class DetailViewController: UIViewController {
         loadViewIfNeeded()
         if let wheather = city?.wheather[currentIndex]{
             temperature.text = "temp: \(wheather.tempLow)°C - \(wheather.tempHigh)°C"
-            wind.text = "wind: \(wheather.windSpeed) \(wheather.windDirection.description)"
-            pressure.text = "pressure: \(wheather.pressure)"
-            precip.text = "precip: \(wheather.precip)"
+            wind.text = "wind: \(wheather.windSpeed) m/s \(wheather.windDirection.description)"
+            pressure.text = "pressure: \(wheather.pressure) hPa"
+            precip.text = "precip: \(wheather.precip) mm/h"
             icon.image = UIImage(named: wheather.iconName)
             date.text = wheather.dateString
             cityName.text = city?.cityName
@@ -61,18 +61,6 @@ class DetailViewController: UIViewController {
         currentIndex += 1
         refreshUI()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-
 }
 
 extension DetailViewController: CitySelectionDelegate {

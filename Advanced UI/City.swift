@@ -17,22 +17,29 @@ class City {
     var cityName: String
     var location: Location
     var wheather: [WheatherData] = []
+    var longDescription: String
     
     init(name: String, location: Location) {
         self.cityName = name
         self.location = location
-        fetchWheatherData ()
+        self.longDescription = name
     }
     
-    func fetchWheatherData(callback: @escaping() -> Void = {}) {
-        let wheatherGetter = WeatherGetter()
-        wheatherGetter.getWeather(city: self) { (data) in
-            data.forEach({ (element) in
-                self.wheather.append(WheatherData(data:element))
-            })
-        }
-        DispatchQueue.main.async {
-            callback()
-        }
+    init(data: [String: Any]) {
+        let longDesc = data["display_name"] as! String
+        let descParts = longDesc.components(separatedBy: ",")
+        self.cityName = descParts.first!
+        self.location = Location(
+            latitude: Double(data["lat"] as! String)!,
+            longitude: Double(data["lon"] as! String)!
+        )
+        self.longDescription = "\(cityName), \(descParts[1]), \(descParts.last!)"
     }
+    
+    func setWheatherData(data : [[String:Any]]) -> Void {
+        data.forEach({ (element) in
+            self.wheather.append(WheatherData(data:element))
+        })
+    }
+
 }

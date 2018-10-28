@@ -156,11 +156,17 @@
                             <outlet property="delegate" destination="FA0-Sb-oL9" id="eSR-KI-Ljp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Mateusz Kagan Wheather App" id="rYU-kp-ChY"/>
+                    <navigationItem key="navigationItem" title="Mateusz Kagan Wheather App" id="rYU-kp-ChY">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="jL8-qV-uEt">
+                            <connections>
+                                <segue destination="YBW-nw-sSv" kind="presentation" identifier="addItem" id="ZUA-Wv-KDH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Osy-aQ-Qc2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1913" y="853"/>
+            <point key="canvasLocation" x="1834" y="853"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Azn-p3-APb">
@@ -190,6 +196,116 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAs-9S-ZGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-295" y="339"/>
+        </scene>
+        <!--Find a City-->
+        <scene sceneID="cxg-Gb-iwP">
+            <objects>
+                <viewController id="Dep-P5-bVE" customClass="CitySearchViewController" customModule="Advanced_UI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tJJ-8S-DKF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KT5-rQ-Q0l">
+                                <rect key="frame" x="50" y="179" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="feD-eV-xwz"/>
+                                    <constraint firstAttribute="width" constant="100" id="z6Z-lO-jKg"/>
+                                </constraints>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="onSearchSubmit:" destination="Dep-P5-bVE" eventType="touchUpInside" id="7wT-Et-nss"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgJ-FH-EYm">
+                                <rect key="frame" x="225" y="179" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="VJA-a8-dGj"/>
+                                    <constraint firstAttribute="width" constant="100" id="tKY-ZJ-8Wz"/>
+                                </constraints>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="o0a-WV-96A" kind="unwind" identifier="saveCity" unwindAction="unwindToCityListWithSender:" id="pZv-dp-KXF"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="brm-EV-33u">
+                                <rect key="frame" x="10" y="214" width="355" height="443"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" id="I2H-IG-3rp">
+                                        <rect key="frame" x="0.0" y="28" width="355" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I2H-IG-3rp" id="bvc-eE-36r">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Dep-P5-bVE" id="KM1-md-g3P"/>
+                                    <outlet property="delegate" destination="Dep-P5-bVE" id="gQ5-Vn-6Fr"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a city name to search" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6t-4b-Qpd">
+                                <rect key="frame" x="30" y="94" width="315" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="QXJ-rm-S0X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onEditEnd:" destination="Dep-P5-bVE" eventType="editingDidEnd" id="AWg-t4-ptQ"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WgJ-FH-EYm" firstAttribute="top" secondItem="k6t-4b-Qpd" secondAttribute="bottom" constant="25" id="7ga-OD-ze0"/>
+                            <constraint firstItem="HA8-gc-BdC" firstAttribute="trailing" secondItem="k6t-4b-Qpd" secondAttribute="trailing" constant="30" id="j4z-af-Nfq"/>
+                            <constraint firstItem="HA8-gc-BdC" firstAttribute="trailing" secondItem="WgJ-FH-EYm" secondAttribute="trailing" constant="50" id="kZg-wY-qvp"/>
+                            <constraint firstItem="brm-EV-33u" firstAttribute="top" secondItem="k6t-4b-Qpd" secondAttribute="bottom" constant="60" id="lFM-m4-UQa"/>
+                            <constraint firstItem="KT5-rQ-Q0l" firstAttribute="leading" secondItem="HA8-gc-BdC" secondAttribute="leading" constant="50" id="nPU-N9-FLo"/>
+                            <constraint firstItem="k6t-4b-Qpd" firstAttribute="top" secondItem="HA8-gc-BdC" secondAttribute="top" constant="30" id="neQ-JN-OoE"/>
+                            <constraint firstItem="brm-EV-33u" firstAttribute="leading" secondItem="HA8-gc-BdC" secondAttribute="leading" constant="10" id="npe-OJ-Q9Q"/>
+                            <constraint firstItem="KT5-rQ-Q0l" firstAttribute="top" secondItem="k6t-4b-Qpd" secondAttribute="bottom" constant="25" id="ryD-2K-v2e"/>
+                            <constraint firstItem="HA8-gc-BdC" firstAttribute="bottom" secondItem="brm-EV-33u" secondAttribute="bottom" constant="10" id="tzU-0S-oRk"/>
+                            <constraint firstItem="k6t-4b-Qpd" firstAttribute="leading" secondItem="HA8-gc-BdC" secondAttribute="leading" constant="30" id="uf4-Gk-Oh5"/>
+                            <constraint firstItem="HA8-gc-BdC" firstAttribute="trailing" secondItem="brm-EV-33u" secondAttribute="trailing" constant="10" id="xrf-Fm-3bX"/>
+                            <constraint firstItem="brm-EV-33u" firstAttribute="height" relation="lessThanOrEqual" secondItem="tJJ-8S-DKF" secondAttribute="height" multiplier="0.7" id="z39-k1-AGf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HA8-gc-BdC"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Find a City" id="VNC-bH-8A3"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="WgJ-FH-EYm" id="bsz-Rq-3Dk"/>
+                        <outlet property="citySearchField" destination="k6t-4b-Qpd" id="cN9-7X-I78"/>
+                        <outlet property="resultTable" destination="brm-EV-33u" id="aY5-NR-juG"/>
+                        <outlet property="searchButton" destination="KT5-rQ-Q0l" id="bin-yt-ftz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Deu-ng-vig" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="o0a-WV-96A" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3716" y="852.3238380809596"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ex4-gj-A04">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YBW-nw-sSv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="On1-T4-JTq">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dep-P5-bVE" kind="relationship" relationship="rootViewController" id="GjD-Mg-uT2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s0y-EM-il6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2776.8000000000002" y="852.3238380809596"/>
         </scene>
     </scenes>
 </document>

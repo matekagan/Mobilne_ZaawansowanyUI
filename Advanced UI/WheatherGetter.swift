@@ -4,15 +4,11 @@ class WeatherGetter {
     
     private let darkSkyBaseApiURL = "https://api.darksky.net/forecast/307ff69f9c1ffcd18bd147431e2b0bc3"
     private let darkSkyArguments = "units=si&exclude=currently,minutely,hourly,alerts,flags"
-    
+
     func getWeather(city: City, callback: @escaping ([[String:Any]]) -> Void) {
-        
-        // This is a pretty simple networking task, so the shared session will do.
         let session = URLSession.shared
-        
         let weatherRequestURL = URL(string: "\(darkSkyBaseApiURL)/\(city.location.latitude),\(city.location.longitude)?\(darkSkyArguments)")!
         
-        // The data task retrieves the data.
         let dataTask = session.dataTask(with: weatherRequestURL) {
             (data: Data?, response: URLResponse?, error: Error?) in
             if let error = error {
@@ -41,11 +37,8 @@ class WeatherGetter {
                 } catch {
                     print("ERROR")
                 }
-                
             }
         }
-        
-        // The data task is set up...launch it!
         dataTask.resume()
     }
     

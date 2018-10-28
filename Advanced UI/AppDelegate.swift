@@ -22,9 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             else { fatalError() }
         
         splitViewController.delegate = masterViewController
-        
-        let firstCity = masterViewController.cities.first
-        detailViewController.city = firstCity
         masterViewController.delegate = detailViewController
         
         return true
