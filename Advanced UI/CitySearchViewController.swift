@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol CityAddDelegate: class {
     func addCity(_ newCity: City)
@@ -15,12 +16,15 @@ protocol CityAddDelegate: class {
 class CitySearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let cityGetter = CityGetter()
+    let locationManager = CLLocationManager()
     var cities: [City] = []
     var weatherGetter = WeatherGetter()
     var cityToBeAdded: City?
     weak var delegate: CityAddDelegate?
 
     
+    @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet weak var currentLocationLabel: UILabel!
     @IBOutlet weak var citySearchField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
@@ -32,6 +36,9 @@ class CitySearchViewController: UIViewController, UITableViewDelegate, UITableVi
         tapGesureRecognizer.cancelsTouchesInView = false;
         self.view.addGestureRecognizer(tapGesureRecognizer)
         restoreTable()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
     
     
@@ -44,7 +51,6 @@ class CitySearchViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.textLabel?.text = cities[indexPath.row].longDescription
         return cell
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCity = cities[indexPath.row]
@@ -59,6 +65,14 @@ class CitySearchViewController: UIViewController, UITableViewDelegate, UITableVi
         self.view.endEditing(true)
     }
 
+    
+    @IBAction func useCurrentLocation(_ sender: Any) {
+        weatherGetter.getWeather(city: cityToBeAdded!) { (data) in
+            self.cityToBeAdded!.setWheatherData(data: data)
+            self.performSegue(withIdentifier: "saveCity", sender: self)
+        }
+    }
+    
     @IBAction func onSearchSubmit(_ sender: Any) {
         self.view.endEditing(true)
         let searchQuery = citySearchField.text!
@@ -103,6 +117,26 @@ class CitySearchViewController: UIViewController, UITableViewDelegate, UITableVi
     func restoreTable() {
         self.resultTable.backgroundView = nil
         self.resultTable.separatorStyle = .singleLine
+    }
+}
+
+extension CitySearchViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let lat = locations.last?.coordinate.latitude,
+            let long = locations.last?.coordinate.longitude {
+            let currLocation = Location(latitude: lat, longitude: long)
+            cityGetter.findCity(location: currLocation) { (address) in
+                self.cityToBeAdded = City(address: address, location: currLocation)
+                let cityDesc : String = (self.cityToBeAdded?.longDescription)!
+                self.currentLocationLabel.text = "You are in: \(cityDesc)"
+                self.currentLocationButton.isEnabled = true
+            }
+        } else {
+            print("No coordinates")
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
 }
 
