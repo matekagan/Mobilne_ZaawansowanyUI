@@ -10,8 +10,8 @@ import Foundation
 
 class CityGetter {
     func findCities(query: String, callback: @escaping ([[String:Any]]) -> Void) {
-        var baseUrl = "https://nominatim.openstreetmap.org/search?q="
-        var requestArguments = "&format=json&limit=10&dedupe=1"
+        let baseUrl = "https://nominatim.openstreetmap.org/search?q="
+        let requestArguments = "&format=json&limit=10&dedupe=1"
         
         let session = URLSession.shared
         var queryTrim = query.trimmingCharacters(in: .whitespacesAndNewlines)

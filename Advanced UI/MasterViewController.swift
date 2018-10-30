@@ -53,7 +53,8 @@ class MasterViewController: UITableViewController {
             cell.imageView?.image=UIImage(named: wheatherData.iconName)
             var avgTemp = ((wheatherData.tempHigh + wheatherData.tempLow) / 2)
             avgTemp = Double(round(10 * avgTemp) / 10)
-            cell.textLabel?.text = "\(cities[indexPath.row].cityName) - \(avgTemp)°C"
+            cell.textLabel?.text = "\(cities[indexPath.row].cityName)"
+            cell.detailTextLabel?.text = "\(avgTemp)°C"
 
         } else {
             cell.textLabel?.text = cities[indexPath.row].cityName

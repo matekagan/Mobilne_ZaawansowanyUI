@@ -20,6 +20,7 @@ class CitySearchViewController: UIViewController, UITableViewDelegate, UITableVi
     var cities: [City] = []
     var weatherGetter = WeatherGetter()
     var cityToBeAdded: City?
+    var tmpCity: City?
     weak var delegate: CityAddDelegate?
 
     
@@ -32,7 +33,7 @@ class CitySearchViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var tapGesureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        let tapGesureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tapGesureRecognizer.cancelsTouchesInView = false;
         self.view.addGestureRecognizer(tapGesureRecognizer)
         restoreTable()
@@ -67,8 +68,9 @@ class CitySearchViewController: UIViewController, UITableViewDelegate, UITableVi
 
     
     @IBAction func useCurrentLocation(_ sender: Any) {
-        weatherGetter.getWeather(city: cityToBeAdded!) { (data) in
-            self.cityToBeAdded!.setWheatherData(data: data)
+        weatherGetter.getWeather(city: tmpCity!) { (data) in
+            self.tmpCity!.setWheatherData(data: data)
+            self.cityToBeAdded = self.tmpCity
             self.performSegue(withIdentifier: "saveCity", sender: self)
         }
     }
@@ -126,8 +128,8 @@ extension CitySearchViewController: CLLocationManagerDelegate {
             let long = locations.last?.coordinate.longitude {
             let currLocation = Location(latitude: lat, longitude: long)
             cityGetter.findCity(location: currLocation) { (address) in
-                self.cityToBeAdded = City(address: address, location: currLocation)
-                let cityDesc : String = (self.cityToBeAdded?.longDescription)!
+                self.tmpCity = City(address: address, location: currLocation)
+                let cityDesc : String = (self.tmpCity?.longDescription)!
                 self.currentLocationLabel.text = "You are in: \(cityDesc)"
                 self.currentLocationButton.isEnabled = true
             }

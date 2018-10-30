@@ -61,6 +61,16 @@ class DetailViewController: UIViewController {
         currentIndex += 1
         refreshUI()
     }
+    
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let mapController = segue.destination as? MapViewController {
+            mapController.city = self.city
+        }
+    }
+    
 }
 
 extension DetailViewController: CitySelectionDelegate {

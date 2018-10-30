@@ -12,6 +12,7 @@
 		3FB518B0217F0E4C00A5B56E /* WindDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB518AF217F0E4C00A5B56E /* WindDirection.swift */; };
 		3FB518B2217F0FBE00A5B56E /* WheatherGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB518B1217F0FBE00A5B56E /* WheatherGetter.swift */; };
 		3FB518B4217F18CC00A5B56E /* img in Resources */ = {isa = PBXBuildFile; fileRef = 3FB518B3217F18CC00A5B56E /* img */; };
+		3FF1844F218857E100D974B5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF1844E218857E100D974B5 /* MapViewController.swift */; };
 		CA32266C2182212F00CF716E /* CityGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA32266B2182212F00CF716E /* CityGetter.swift */; };
 		CA835EB9217E1732001D16C3 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA835EB8217E1732001D16C3 /* MasterViewController.swift */; };
 		CA835EBB217E1857001D16C3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA835EBA217E1857001D16C3 /* DetailViewController.swift */; };
@@ -41,6 +42,7 @@
 		3FB518AF217F0E4C00A5B56E /* WindDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindDirection.swift; sourceTree = "<group>"; };
 		3FB518B1217F0FBE00A5B56E /* WheatherGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherGetter.swift; sourceTree = "<group>"; };
 		3FB518B3217F18CC00A5B56E /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
+		3FF1844E218857E100D974B5 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CA32266B2182212F00CF716E /* CityGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityGetter.swift; sourceTree = "<group>"; };
 		CA835EB8217E1732001D16C3 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		CA835EBA217E1857001D16C3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				CAFB93B6217E15EE000D9903 /* AppDelegate.swift */,
 				CAFB93B8217E15EE000D9903 /* CitySearchViewController.swift */,
 				CAFB93BA217E15EE000D9903 /* Main.storyboard */,
+				3FF1844E218857E100D974B5 /* MapViewController.swift */,
 				CA32266B2182212F00CF716E /* CityGetter.swift */,
 				3FB518AB217F090F00A5B56E /* City.swift */,
 				3FB518B1217F0FBE00A5B56E /* WheatherGetter.swift */,
@@ -215,6 +218,7 @@
 				CAFB93B9217E15EE000D9903 /* CitySearchViewController.swift in Sources */,
 				3FB518AE217F0D5B00A5B56E /* WhetherData.swift in Sources */,
 				3FB518B2217F0FBE00A5B56E /* WheatherGetter.swift in Sources */,
+				3FF1844F218857E100D974B5 /* MapViewController.swift in Sources */,
 				3FB518AC217F090F00A5B56E /* City.swift in Sources */,
 				CAFB93B7217E15EE000D9903 /* AppDelegate.swift in Sources */,
 				CA835EB9217E1732001D16C3 /* MasterViewController.swift in Sources */,
