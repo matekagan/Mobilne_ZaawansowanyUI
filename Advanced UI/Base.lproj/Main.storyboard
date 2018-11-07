@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FLH-8l-P6W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FLH-8l-P6W">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,7 +78,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQy-8h-BVt">
                                 <rect key="frame" x="58" y="94" width="170" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -350,7 +350,7 @@
             </objects>
             <point key="canvasLocation" x="2776.8000000000002" y="852.3238380809596"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Map-->
         <scene sceneID="MJH-lf-Ltr">
             <objects>
                 <viewController id="SCW-Ps-2cr" customClass="MapViewController" customModule="Advanced_UI" customModuleProvider="target" sceneMemberID="viewController">
@@ -371,8 +371,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Ss-9Z-Tlr"/>
                     </view>
-                    <navigationItem key="navigationItem" id="oFv-Xw-7ag"/>
+                    <navigationItem key="navigationItem" title="Map" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="oFv-Xw-7ag"/>
                     <connections>
+                        <outlet property="header" destination="oFv-Xw-7ag" id="NXD-BJ-Ldc"/>
                         <outlet property="map" destination="ECS-NU-Y9L" id="vop-u0-WMV"/>
                     </connections>
                 </viewController>

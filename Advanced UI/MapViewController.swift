@@ -14,9 +14,11 @@ class MapViewController: UIViewController {
     var city: City?
     let regionRadius: CLLocationDistance = 5000
     @IBOutlet weak var map: MKMapView!
-
+    @IBOutlet weak var header: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        header.title = city?.cityName
         let initialLocation  = CLLocation(
             latitude: (city?.location.latitude)!,
             longitude: (city?.location.longitude)!
@@ -34,6 +36,7 @@ class MapViewController: UIViewController {
             latitude: marker.latitude,
             longitude: marker.longitude
         )
+        locationMarker.title = city?.cityName
         map.setRegion(coordinateRegion, animated: true)
         map.addAnnotation(locationMarker)
     }
